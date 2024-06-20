@@ -215,3 +215,7 @@ body {
 .button-check:hover {
     background-color: #333; /* Darken background on hover */
 }
+
+.disabled {
+    display: none;
+}
