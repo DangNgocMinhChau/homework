@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            border: 1px solid;
+            box-shadow: 2px 2px 4px 4px rgb(224, 222, 222);
+            height: auto;
+            margin: 90px auto;
+            width: 600px;
+            padding: 20px;
+        }
+
+        #form {}
+
+        #selectId {
+            width: 320px;
+            height: 40px;
+            font-size: 25px;
+            /* margin-top: 30px;
+            margin-left: 35px; */
+        }
+
+        input {
+            width: 320px;
+            height: 40px;
+            margin-top: 10px;
+            font-size: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-left: 35px;
+        }
+
+        #bnt {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            font-size: 25px;
+            margin-top: 30px;
+            height: 30px;
+        }
+
+        .title {
+            text-align: center;
+            font-size: 40px;
+        }
+
+        .subject {
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+        }
+
+        .item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .label {}
+
+        .inputStyle {}
+
+        #result {
+            display: flex;
+            justify-content: center;
+            font-size: 24px;
+        }
+    </style>
+</head>
+
+<body>
+    <form id="Form">
+        <div class="title">Bảng tính điểm trung bình</div>
+        <div class="subject">
+            <div class="item">
+                <div class="label">
+                    Khối
+                </div>
+                <select id="selectId" class="inputStyle">
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                </select>
+            </div>
+
+            <div class="item">
+                <div class="label">
+                    Toán
+                </div>
+                <input id="diemToan" class="inputStyle" type="text" placeholder="mời bạn nhập" />
+            </div>
+            <div class="item">
+                <div class="label">
+                    Tiếng Anh
+                </div>
+                <input id="diemAnh" class="inputStyle" type="text" placeholder="mời bạn nhập" />
+            </div>
+            <div class="item">
+                <div class="label">
+                    Ngữ văn
+                </div>
+                <input id="diemVan" class="inputStyle" type="text" placeholder="mời bạn nhập" />
+            </div>
+            <div class="item">
+                <div class="label">
+                    Hóa học
+                </div>
+                <input id="diemHoa" class="inputStyle" type="text" placeholder="mời bạn nhập" />
+            </div>
+            <div class="item">
+                <div class="label">
+                    Lịch sử
+                </div>
+                <input id="diemSu" class="inputStyle" type="text" placeholder="mời bạn nhập" />
+            </div>
+            <div class="item">
+                <div class="label">
+                    Sinh học
+                </div>
+                <input id="diemSinh" class="inputStyle" type="text" placeholder="mời bạn nhập" />
+            </div>
+            <div class="item">
+                <div class="label">
+                    Địa lý
+                </div>
+                <input id="diemDia" class="inputStyle" type="text" placeholder="mời bạn nhập" />
+            </div>
+        </div>
+        <div id="result">
+        </div>
+        <div id="bnt">
+            <button type="button" onclick="Ketqua()">Submit</button>
+            <button type="button" onclick="clearForm()">Clear</button>
+        </div>
+
+        <script>
+            function Ketqua() {
+                let isKhoi = document.getElementById("selectId").value
+                let diemToan = parseFloat(document.getElementById("diemToan").value);
+                let diemAnh = parseFloat(document.getElementById("diemAnh").value);
+                let diemVan = parseFloat(document.getElementById("diemVan").value);
+                let diemHoa = parseFloat(document.getElementById("diemHoa").value);
+                let diemSu = parseFloat(document.getElementById("diemSu").value);
+                let diemSinh = parseFloat(document.getElementById("diemSinh").value);
+                let diemDia = parseFloat(document.getElementById("diemDia").value);
+                let diemTrungBinh = 0;
+                if (isNaN(diemToan) || isNaN(diemAnh) || isNaN(diemVan) || isNaN(diemHoa) || isNaN(diemSu) || isNaN(diemSinh) || isNaN(diemDia)) {
+                    alert("Vui lòng nhập số hợp lệ cho tất cả các môn học!");
+                } else {
+                    switch (isKhoi) {
+                        case "A":
+                            diemTrungBinh = (diemToan * 2 + diemHoa * 2 + diemSinh * 2 + diemAnh + diemVan + diemSu + diemDia) / 10
+                            break;
+                        case "B":
+                            diemTrungBinh = (diemVan * 2 + diemSu * 2 + diemDia * 2 + diemToan + diemAnh + diemHoa + diemSinh) / 10
+                            break; s
+                        case "C":
+                            diemTrungBinh = (diemToan * 2 + diemAnh * 2 + diemVan * 2 + diemHoa + diemSu + diemSinh + diemDia) / 10
+                            break;
+                        default:
+                            break;
+                    }
+                    document.getElementById("result").textContent = ("Điểm trung bình (DTB): " + diemTrungBinh.toFixed(2))
+                }
+            }
+
+            function clearForm() {
+                document.getElementById("Form").reset();
+            }
+        </script>
+    </form>
+</body>
+
+</html>

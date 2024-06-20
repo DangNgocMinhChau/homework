@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="main">
+        <div class="title">Calculate Employee Salaries</div>
+        <form id="form">
+            <div class="form-container">
+                <div class="item">
+                    <div class="label">
+                        Sales
+                    </div>
+                    <input id="sales" class="inputStyle" type="text" placeholder="mời bạn nhập" />
+                </div>
+                <div class="item">
+                    <div class="label">
+                        Salary
+                    </div>
+                    <input id="salary" class="inputStyle" type="text" disabled="false" />
+                </div>
+                <div class="item">
+                    <div class="label">
+                        Personal Income Tax
+                    </div>
+                    <input id="personalTax" class="inputStyle" type="text" disabled="false" />
+                </div>
+                <div class="item">
+                    <div class="label">
+                        Total
+                    </div>
+                    <input id="total" class="inputStyle" type="text" disabled="false" />
+                </div>
+
+            </div>
+        </form>
+        <div class="btn-group">
+            <button type="button" class="style-btn success" onclick=submit()>Submit</button>
+            <button type="button" class="style-btn" onclick="clearForm()">Clear</button>
+        </div>
+        <table id="table-container">
+        </table>
+    </div>
+ 
+</body>
+<script src="index.js"></script>
+
+</html>
